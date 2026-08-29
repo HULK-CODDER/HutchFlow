@@ -1,0 +1,335 @@
+:root {
+  /* ==========================================================================
+     THE HUB - COLOR PALETTE
+     ========================================================================== */
+
+  /* Brand & Accent Colors (Teal / Green Highlights) */
+  --color-accent-primary: #5eead4;       /* Bright teal for active borders, focus states, and key highlights */
+  --color-accent-hover: #2dd4bf;         /* Slightly darker teal for hover states */
+  --color-accent-bg-muted: #132e2a;      /* Dark teal/green tint for active tab backgrounds */
+
+  /* Backgrounds & Surfaces (Dark Mode Theme) */
+  --color-bg-app: #090d10;               /* Extremely dark blue/gray for the main app background */
+  --color-bg-surface-low: #12181d;       /* Main content area background (Orders container) */
+  --color-bg-surface-mid: #1c242c;       /* Inactive tabs, buttons, and the Side-Drawer background */
+  --color-bg-surface-high: #242f39;      /* Quick Reference cards and inactive Action Chips */
+
+  /* Typography & Icons */
+  --color-text-primary: #ffffff;         /* Headings, active tabs, and primary labels */
+  --color-text-secondary: #9ca3af;       /* Secondary details, specs, and helper text */
+  --color-text-muted: #6b7280;           /* UI icons and placeholder text */
+  --color-text-accent: #5eead4;          /* Accent headings (e.g., "ISO CONTAINER SIZES & SPECS") */
+
+  /* Borders & Dividers */
+  --color-border-subtle: #2d3742;        /* Thin dividers and subtle card borders */
+  --color-border-focus: #5eead4;         /* Active state borders */
+  
+  /* Overlays */
+  --color-overlay-backdrop: rgba(0, 0, 0, 0.5); /* Dimmed backdrop overlay behind the drawer */
+}
+.Midnight_Purple {
+  /* Brand & Accent Colors (Violet / Purple Highlights) */
+  --color-accent-primary: #a78bfa;       /* Bright violet */
+  --color-accent-hover: #8b5cf6;         /* Deeper purple */
+  --color-accent-bg-muted: #241b3a;      /* Dark purple tint */
+
+  /* Backgrounds & Surfaces */
+  --color-bg-app: #050509;                /* Near black */
+  --color-bg-surface-low: #0f0f1a;        /* Deep navy-purple */
+  --color-bg-surface-mid: #1a1a2e;        /* Surface secondary */
+  --color-bg-surface-high: #252545;       /* Card/Elevated surface */
+
+  /* Typography & Icons */
+  --color-text-primary: #f8fafc;
+  --color-text-secondary: #94a3b8;
+  --color-text-muted: #64748b;
+  --color-text-accent: #a78bfa;
+
+  /* Borders & Dividers */
+  --color-border-subtle: #2e2e4d;
+  --color-border-focus: #a78bfa;
+  
+  /* Overlays */
+  --color-overlay-backdrop: rgba(0, 0, 0, 0.7);
+}
+.Solarized_Amber {
+  /* Brand & Accent Colors (Amber / Gold Highlights) */
+  --color-accent-primary: #fbbf24;       /* Warm amber */
+  --color-accent-hover: #f59e0b;         /* Darker gold */
+  --color-accent-bg-muted: #2d2305;      /* Deep amber tint */
+
+  /* Backgrounds & Surfaces */
+  --color-bg-app: #0c0a09;                /* Stone black */
+  --color-bg-surface-low: #1c1917;        /* Warm dark gray */
+  --color-bg-surface-mid: #292524;        /* Stone surface */
+  --color-bg-surface-high: #44403c;       /* Lighter stone */
+
+  /* Typography & Icons */
+  --color-text-primary: #fafaf9;
+  --color-text-secondary: #a8a29e;
+  --color-text-muted: #78716c;
+  --color-text-accent: #fbbf24;
+
+  /* Borders & Dividers */
+  --color-border-subtle: #3f3f3f;
+  --color-border-focus: #fbbf24;
+  
+  /* Overlays */
+  --color-overlay-backdrop: rgba(12, 10, 9, 0.6);
+}
+.Nordic_Frost {
+  /* Brand & Accent Colors (Electric Blue Highlights) */
+  --color-accent-primary: #38bdf8;       /* Sky blue */
+  --color-accent-hover: #0ea5e9;         /* Ocean blue */
+  --color-accent-bg-muted: #0c2a3b;      /* Muted blue tint */
+
+  /* Backgrounds & Surfaces */
+  --color-bg-app: #0f172a;                /* Slate navy */
+  --color-bg-surface-low: #1e293b;        /* Slate surface */
+  --color-bg-surface-mid: #334155;        /* Lighter slate */
+  --color-bg-surface-high: #475569;       /* Steel surface */
+
+  /* Typography & Icons */
+  --color-text-primary: #f1f5f9;
+  --color-text-secondary: #94a3b8;
+  --color-text-muted: #64748b;
+  --color-text-accent: #38bdf8;
+
+  /* Borders & Dividers */
+  --color-border-subtle: #334155;
+  --color-border-focus: #38bdf8;
+  
+  /* Overlays */
+  --color-overlay-backdrop: rgba(15, 23, 42, 0.8);
+}
+/* ==========================================================================
+   SUNSET EMBER
+   Warm Orange & Red Theme
+   ========================================================================== */
+
+.Sunset_Ember {
+  --color-accent-primary: #fb923c;
+  --color-accent-hover: #f97316;
+  --color-accent-bg-muted: #3b1d12;
+
+  --color-bg-app: #1c1917;
+  --color-bg-surface-low: #292524;
+  --color-bg-surface-mid: #44403c;
+  --color-bg-surface-high: #57534e;
+
+  --color-text-primary: #fafaf9;
+  --color-text-secondary: #d6d3d1;
+  --color-text-muted: #a8a29e;
+  --color-text-accent: #fb923c;
+
+  --color-border-subtle: #44403c;
+  --color-border-focus: #fb923c;
+
+  --color-overlay-backdrop: rgba(28, 25, 23, 0.8);
+}
+
+/* ==========================================================================
+   Emerald Forest
+   Green Nature Theme
+   ========================================================================== */
+
+.Emerald_Forest {
+  --color-accent-primary: #34d399;
+  --color-accent-hover: #10b981;
+  --color-accent-bg-muted: #0d2f25;
+
+  --color-bg-app: #0f1f1a;
+  --color-bg-surface-low: #163128;
+  --color-bg-surface-mid: #224437;
+  --color-bg-surface-high: #2f5c49;
+
+  --color-text-primary: #ecfdf5;
+  --color-text-secondary: #a7f3d0;
+  --color-text-muted: #6ee7b7;
+  --color-text-accent: #34d399;
+
+  --color-border-subtle: #224437;
+  --color-border-focus: #34d399;
+
+  --color-overlay-backdrop: rgba(15, 31, 26, 0.8);
+}
+
+/* ==========================================================================
+   Royal Violet
+   Purple Luxury Theme
+   ========================================================================== */
+
+.Royal_Violet {
+  --color-accent-primary: #a855f7;
+  --color-accent-hover: #9333ea;
+  --color-accent-bg-muted: #2b1240;
+
+  --color-bg-app: #140f1f;
+  --color-bg-surface-low: #211833;
+  --color-bg-surface-mid: #31224b;
+  --color-bg-surface-high: #443066;
+
+  --color-text-primary: #f5f3ff;
+  --color-text-secondary: #c4b5fd;
+  --color-text-muted: #a78bfa;
+  --color-text-accent: #a855f7;
+
+  --color-border-subtle: #31224b;
+  --color-border-focus: #a855f7;
+
+  --color-overlay-backdrop: rgba(20, 15, 31, 0.8);
+}
+
+/* ==========================================================================
+   Crimson Night
+   Red Dark Theme
+   ========================================================================== */
+
+.Crimson_Night {
+  --color-accent-primary: #ef4444;
+  --color-accent-hover: #dc2626;
+  --color-accent-bg-muted: #3b1010;
+
+  --color-bg-app: #111111;
+  --color-bg-surface-low: #1f1f1f;
+  --color-bg-surface-mid: #2f2f2f;
+  --color-bg-surface-high: #444444;
+
+  --color-text-primary: #fafafa;
+  --color-text-secondary: #d4d4d8;
+  --color-text-muted: #a1a1aa;
+  --color-text-accent: #ef4444;
+
+  --color-border-subtle: #2f2f2f;
+  --color-border-focus: #ef4444;
+
+  --color-overlay-backdrop: rgba(17, 17, 17, 0.8);
+}
+
+/* ==========================================================================
+   Golden Horizon
+   Gold & Dark Luxury Theme
+   ========================================================================== */
+
+.Golden_Horizon {
+  --color-accent-primary: #facc15;
+  --color-accent-hover: #eab308;
+  --color-accent-bg-muted: #3f3206;
+
+  --color-bg-app: #161616;
+  --color-bg-surface-low: #232323;
+  --color-bg-surface-mid: #343434;
+  --color-bg-surface-high: #454545;
+
+  --color-text-primary: #fffefc;
+  --color-text-secondary: #fde68a;
+  --color-text-muted: #fcd34d;
+  --color-text-accent: #facc15;
+
+  --color-border-subtle: #343434;
+  --color-border-focus: #facc15;
+
+  --color-overlay-backdrop: rgba(22, 22, 22, 0.8);
+}
+
+/* ==========================================================================
+   Arctic Ice
+   Clean Cyan Theme
+   ========================================================================== */
+
+.Arctic_Ice {
+  --color-accent-primary: #22d3ee;
+  --color-accent-hover: #06b6d4;
+  --color-accent-bg-muted: #083344;
+
+  --color-bg-app: #071018;
+  --color-bg-surface-low: #10202d;
+  --color-bg-surface-mid: #1b3242;
+  --color-bg-surface-high: #26485d;
+
+  --color-text-primary: #ecfeff;
+  --color-text-secondary: #a5f3fc;
+  --color-text-muted: #67e8f9;
+  --color-text-accent: #22d3ee;
+
+  --color-border-subtle: #1b3242;
+  --color-border-focus: #22d3ee;
+
+  --color-overlay-backdrop: rgba(7, 16, 24, 0.8);
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+body{
+  position: relative;
+  background-color: var(--color-bg-app);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+#change_theme{
+  display: flex;
+  z-index: 10;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  right: 1%;
+  bottom: 1%;
+  border-radius: 25px;
+  border: 1px solid var(--color-accent-hover);
+  background-color: var(--color-accent-bg-muted);
+  color: var(--color-accent-primary);
+  padding: 2px 5px;
+}
+#change_theme:hover{
+  transform: scale(105%);
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  box-shadow: 0px 0px 0.4cm 4px var(--color-text-accent),
+              inset 0px 0px 0.4cm 1px var(--color-text-accent);
+}
+#change_theme:active{
+  transform: scale(95%);
+  color: var(--color-bg-app);
+  background-color: var(--color-accent-primary);
+  transition: all 0.1s ease-in-out;
+  cursor: pointer;
+  box-shadow: 0px 0px 0.4cm 2px var(--color-text-primary);
+}
+
+/* Works in Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-surface-low);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    var(--color-accent-primary),
+    var(--color-accent-hover)
+  );
+  border-radius: 999px;
+  border: 2px solid var(--color-bg-surface-low);
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent-hover);
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--color-bg-surface-low);
+}

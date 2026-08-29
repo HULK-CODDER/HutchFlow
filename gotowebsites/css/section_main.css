@@ -1,0 +1,37 @@
+.main_card_section{
+    height: 10vh;
+    width: 100vw;
+    margin-top: 6%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.main_section_card{
+    text-transform: uppercase;
+    background-color: var(--color-bg-surface-mid);
+    color: var(--color-text-primary);
+    border-radius: 15px;
+    border: 1px solid var(--color-border-subtle);
+    height: 70%;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 300%;
+}
+.main_section_card:hover{
+    filter: brightness(130%);
+    cursor: pointer;
+    
+}
+.main_section_card:active{
+    filter: brightness(160%);
+    transform: scale(95%);
+    border: 2px inset var(--color-accent-hover);
+}
+.main_section_card_active{
+    border: 1px solid var(--color-border-focus);
+    color: var(--color-text-secondary);
+    filter: brightness(160%);
+    box-shadow: 0px 0px 0.3cm 1px var(--color-border-focus);
+}
