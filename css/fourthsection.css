@@ -1,0 +1,128 @@
+.fourth_section {
+    min-height: 75vh;
+    width: 88vw;
+    margin-top: 7%;
+      justify-self: center;
+}
+
+.fourth_section>h1 {
+    margin-top: 2%;
+    margin-left: 2%;
+    text-transform: uppercase;
+    font-size: 300%;
+    font-weight: bold;
+    color: var(--text-header);
+}
+
+.fourth_section>h1 b {
+    font-weight: 600;
+    color: var(--text-body);
+}
+
+.fourth_section_cards {
+    min-height: 75vh;
+    border-radius: 15px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 2fr);
+}
+
+.fourth_section_card {
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 60%;
+    width: 80%;
+    gap: 2%;
+    justify-self: center;
+    align-self: center;
+}
+
+.fourth_section_card>button {
+    width: 50%;
+    border-radius: 12px;
+    font-weight: 900;
+    font-size: 130%;
+    padding: 0;
+    border: 10px outset var(--accent-primary);
+    height: 60%;
+    width: 23%;
+    box-shadow: none;
+}
+
+.innercard {
+    display: flex;
+    background-color: var(--bg-card);
+    flex-direction: column;
+    border-radius: 8px;
+    padding: 1px;
+    border: 1px dashed var(--accent-primary);
+    box-shadow: 0px 0px 0.9cm 1px var(--bg-section-alt);
+
+}
+
+.innercard:hover {
+    background: linear-gradient(129deg, rgba(0, 102, 255, 0.2), var(--bg-card));
+    transform: scale(102%);
+    border: 1px inset var(--accent-primary);
+    transition: 0.1s;
+}
+
+.innercard:active {
+    transform: scale(95%);
+    transition: 0.1s;
+}
+
+.innercard,
+.innercard>h1,
+.innercard>p:hover {
+    cursor: pointer;
+}
+
+.innercard>h1 {
+    font-size: 130%;
+    padding: 1%;
+    text-transform: uppercase;
+}
+
+.innercard>p {
+    padding: 1%;
+    font-size: 100%;
+    color: var(--text-body);
+    filter: contrast(1);
+    font-weight: 700;
+}
+
+.Appointment {
+    grid-area: 2/3/2/2;
+}
+
+.dispatch {
+    grid-area: 3/4/3/3;
+}
+
+.Account {
+    grid-area: 4/4/4/4;
+}
+
+.first_arrow {
+    justify-self: flex-start;
+    align-self: flex-end;
+    transform: rotateY(180deg) scaleX(200%) scaleY(110%) translateY(30%);
+    grid-area: 2/3/1/2;
+}
+
+.second_arrow {
+   justify-self: flex-end;
+    align-self: flex-start;
+    transform: rotateZ(270deg) scaleX(110%) scaleY(200%);
+    grid-area: 4/2/3/3;
+}
+
+.third_arrow {
+    justify-self: flex-start;
+    align-self: flex-end;
+    transform: rotateY(180deg) scaleX(200%) scaleY(110%) translateY(30%);
+    grid-area: 4/5/3/4;
+}

@@ -1,0 +1,101 @@
+main header{
+    background-color: transparent;
+    height: 6vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+}
+main header nav{
+    height: inherit;
+    width: inherit;
+    background-color: transparent;
+    display: flex;
+    justify-content: space-between;
+    padding:0% 5%;
+    align-items: center;
+    position: relative;
+}
+.scrolled{
+    background: linear-gradient(180deg,var(--accent-secondary2),rgba(255, 255, 255, 0));
+    /* box-shadow: 0px -12px 0.6cm 4px inset var(--accent-primary2); */
+}
+.logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+}
+.logo img{
+    height: 5vh;
+    transform: scale(170%);
+    border-radius: 100%;
+    cursor: pointer;
+}
+.logo img:hover{
+    transform: scale(175%);
+    transition: 0.1s;
+}
+.logo img:active{
+    transform: scale(165%);
+    transition: 0.1s;
+}
+.main_heading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* position: absolute;
+    left: 40%; */
+}
+.main_heading h1{
+    text-transform: uppercase;
+    color: var(--text-header);
+    text-shadow: 3px 2.5px 0cm black;
+    cursor: default;
+}
+.color_exchange2{
+    color: var(--text-on-accent) !important;
+}
+.nav_list_element{
+    min-width: 25vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+.nav_list_element ul{
+    display: flex;
+    min-width: 25vw;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10%;
+}
+.nav_list_element ul li{
+    display: flex;
+    text-transform: capitalize;
+    list-style: none;
+    font-size: 130%;
+}
+.color_exchange li{
+    color: var(--text-on-accent);
+}
+.nav_list_element ul li:last-child{
+    width: 23vw !important;
+}
+.nav_list_element ul li:hover{
+    cursor: pointer;
+    color: var(--text-on-accent);
+    text-shadow:3px 1px 0cm var(--text-body);
+    transform: scale(105%);
+}
+.color_exchange li:hover{
+    cursor: pointer;
+    color: var(--accent-secondary2);
+    text-shadow:3px 1px 0cm var(--text-body);
+    transform: scale(105%);
+}
+.nav_list_element ul li:active{
+    transform: scale(95%);
+    color: var(--accent-secondary);
+    text-shadow:none;
+}

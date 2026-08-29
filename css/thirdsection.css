@@ -1,0 +1,89 @@
+.third_section{
+      justify-self: center;
+    margin-top: 15%;
+    min-height: 75vh;
+    width: 97vw;
+}
+.third_section>h1{
+  
+     margin-top: 2%;
+    margin-left: 2%;
+    text-transform: uppercase;
+    font-size: 300%;
+    font-weight: bold;
+    color: var(--text-header);
+}
+
+.third_section>h1 b{
+    font-weight: 600;
+    color: var( --text-body);
+}
+.third_section>p{
+    font-size: 200%;
+    color: var(--text-body);
+    filter: contrast(1);
+    font-weight: 600;
+    font-style: italic;
+    margin-top: 2%;
+}
+.load_cycle_cards{
+    overflow: hidden;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(89, 111, 183, 0.281), transparent 100%),
+    radial-gradient(circle at 70% 80%, rgba(161, 191, 238, 0.1), transparent 100%),
+    var(--bg-card);
+  border: 1px solid var(--border-light);
+    min-height: 75vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-top: 1%;
+    gap: 4%;
+    padding-top: 10px;
+    border-radius: 20px;
+    padding-bottom: 10px;
+}
+.laod_cycle_card{
+    min-height: 80%;
+    border-radius: 15px;
+    width: 70%;
+    padding-bottom: 1%;
+    padding-top: 1%;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+     box-shadow:var(--load_card_shadow);
+}
+.laod_cycle_card:hover{
+    transform: scale(105%);
+    transition: 0.1s;
+}
+.laod_cycle_card>p{
+    font-weight: 700;
+    font-size: 120%;
+    justify-self: center;
+    padding: 2%;
+}
+.laod_cycle_card img{
+    width: 20%;
+    justify-self: center;
+    align-self: center;
+}
+.pickup_card{
+    width: 75%;
+    justify-self: flex-end;
+     transform: translateX(50%);
+}
+.pickup_card:hover{
+    transform: scale(105%) translateX(50%);
+    transition: 0.1s;
+}
+.empty_card{
+    width: 75%;
+    grid-area: 3/4/2/3;
+    justify-self: flex-start;
+    transform: translateX(-50%);
+}
+.empty_card:hover{
+    transform: scale(105%) translateX(-50%);
+    transition: 0.1s;
+}

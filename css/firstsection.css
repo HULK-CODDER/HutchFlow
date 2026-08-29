@@ -1,0 +1,128 @@
+.first_section {
+    background-color: transparent;
+    position: relative;
+    height: 85vh;
+    /* border: var(--redborder); */
+    width: 88vw;
+    margin-top: 6%;
+}
+
+.first_section_main {
+    /* border: var(--redborder); */
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 58%;
+    height: 90%;
+    margin-left: 5%;
+    margin-top: 2%;
+
+}
+
+.first_section_main h1 {
+    font-size: 700%;
+    font-family: monospace;
+    text-transform: uppercase;
+    font-weight: 100;
+}
+
+.first_section_main p {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 190%;
+    color: var(--text-body);
+}
+.first_section_main button{
+    margin-left: 1%;
+    margin-top: 2%;
+    cursor: url("../icons/truck.png"),auto;
+}
+.first_section_card {
+    /* background-image: url("file:///E:/temporary/FILE%20TO%20TEXT/HUTCH%20TURORIAL%20NEW/images/card_bg_white.jpg"); */
+   /* background-image: url("images/card_bg_white.jpg"); */
+   background-image: url("../images/card_bg_white.jpg");
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: 110%;
+    /* border: var(--redborder); */
+    height: inherit;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 35%;
+    border-radius: 10px;
+    /* box-shadow: 3px 3px 0.6cm 5px var(--accent-primary); */
+}
+
+.first_section_card::before {
+    content: "";
+    position: absolute;
+    inset: -50px;
+    background: radial-gradient(circle, var(--circle_shadow), transparent 70%);
+    filter: blur(10%);
+    z-index: -1;
+    top: 50%;
+    left: 30%;
+    transform: scale(200%);
+    /* transform: translate(-50%, -50%) translate(80px, -40px); */
+}
+.first_section_card h2{
+    text-transform: uppercase;
+    background-color: var( --bg-card);
+    width: 80%;
+    padding: 2px 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    justify-self: center;
+    position: absolute;
+    top:55%;
+    box-shadow: var(--shadow-sm);
+}
+
+.first_section_card_card{
+    height: 37%;
+    /* border: var(--redborder); */
+    border-radius:9px;
+    width: 100%;
+    background-color: var( --bg-section-alt);
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.card_box{
+    /* border: var(--redborder); */
+    height: 70%;
+    width: 25%;
+    border-radius: 8px;
+    background-color: var(--bg-card);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+       box-shadow: var( --shadow-md);
+}
+.card_box:hover{
+    cursor:default;
+    transform: scale(110%);
+    transition:var(--transition-fast);
+}
+.card_box h3{
+    color: var( --accent-primary);
+    text-transform: uppercase;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.card_box p{
+    color: var(--text-body);
+    text-transform: capitalize;
+    justify-self: flex-start;
+    font-style: oblique;
+    font-size: medium;
+    padding-left: 3px;
+ 
+}
