@@ -36,16 +36,16 @@ let launch_03= document.getElementById("launch_3")
 let launch_04= document.getElementById("launch_4")
 
 launch_01.addEventListener("click",()=>{
-  window.open("file:///E:/temporary/FILE%20TO%20TEXT/HUTCH%20TURORIAL%20NEW/gotowebsites/step1/orders.html","_self")
+  window.open("https://hulk-codder.github.io/HutchFlow/gotowebsites/step1/orders.html","_self")
 })
 launch_02.addEventListener("click",()=>{
-  window.open("file:///E:/temporary/FILE%20TO%20TEXT/HUTCH%20TURORIAL%20NEW/gotowebsites/step2/step2.html","_self")
+  window.open("https://hulk-codder.github.io/HutchFlow/gotowebsites/step2/step2.html","_self")
 })
 launch_03.addEventListener("click",()=>{
-  window.open("file:///E:/temporary/FILE%20TO%20TEXT/HUTCH%20TURORIAL%20NEW/gotowebsites/step3/step3.html","_self")
+  window.open("https://hulk-codder.github.io/HutchFlow/gotowebsites/step3/step3.html","_self")
 })
 launch_04.addEventListener("click",()=>{
-  window.open("file:///E:/temporary/FILE%20TO%20TEXT/HUTCH%20TURORIAL%20NEW/gotowebsites/step4/step4.html","_self")
+  window.open("https://hulk-codder.github.io/HutchFlow/gotowebsites/step4/step4.html","_self")
 })
 
 
