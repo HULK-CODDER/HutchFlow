@@ -2,7 +2,7 @@
   // -------------------------------------------------------------
   // CONFIGURATION: CHANGE YOUR LINK HERE!
   // -------------------------------------------------------------
-  const targetUrl = 'file:///E:/temporary/FILE%20TO%20TEXT/HUTCH%20TURORIAL%20NEW/index.html';
+  const targetUrl = 'https://hulk-codder.github.io/HutchFlow/';
   const buttonText = '🚀 VISIT MAIN SITE';
   // -------------------------------------------------------------
 
