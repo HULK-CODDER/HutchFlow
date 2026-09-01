@@ -62,7 +62,7 @@ nav_elements[1].addEventListener('click',()=>{
   tutorial_nav.classList.toggle("color_exchange")
 })
 nav_elements[2].addEventListener('click',()=>{
-  window.open("file:///E:/temporary/FILE%20TO%20TEXT/HUTCH%20TURORIAL%20NEW/gotowebsites/gallary/gallary.html","_self")
+  window.open("https://hulk-codder.github.io/HutchFlow/gotowebsites/gallary/gallary.html","_self")
 })
 
 nav_elements[3].addEventListener('click', () => {
@@ -88,26 +88,26 @@ cross2.addEventListener('click',()=>{
 })
 
 orders11.addEventListener('click',()=>{
-  window.open("file:///E:/temporary/FILE%20TO%20TEXT/HUTCH%20TURORIAL%20NEW/gotowebsites/step1/orders.html","_self")
+  window.open("https://hulk-codder.github.io/HutchFlow/gotowebsites/step1/orders.html","_self")
 })
 Appointment11.addEventListener('click',()=>{
-  window.open("file:///E:/temporary/FILE%20TO%20TEXT/HUTCH%20TURORIAL%20NEW/gotowebsites/step2/step2.html","_self")
+  window.open("https://hulk-codder.github.io/HutchFlow/gotowebsites/step2/step2.html","_self")
 })
 dispatch11.addEventListener('click',()=>{
-  window.open("file:///E:/temporary/FILE%20TO%20TEXT/HUTCH%20TURORIAL%20NEW/gotowebsites/step3/step3.html","_self")
+  window.open("https://hulk-codder.github.io/HutchFlow/gotowebsites/step3/step3.html","_self")
 })
 account11.addEventListener('click',()=>{
-  window.open("file:///E:/temporary/FILE%20TO%20TEXT/HUTCH%20TURORIAL%20NEW/gotowebsites/step4/step4.html","_self")
+  window.open("https://hulk-codder.github.io/HutchFlow/gotowebsites/step4/step4.html","_self")
 })
 orders2.addEventListener('click',()=>{
-  window.open("file:///E:/temporary/FILE%20TO%20TEXT/HUTCH%20TURORIAL%20NEW/gotowebsites/step1/orders.html","_self")
+  window.open("https://hulk-codder.github.io/HutchFlow/gotowebsites/step1/orders.html","_self")
 })
 Appointment2.addEventListener('click',()=>{
-  window.open("file:///E:/temporary/FILE%20TO%20TEXT/HUTCH%20TURORIAL%20NEW/gotowebsites/step2/step2.html","_self")
+  window.open("https://hulk-codder.github.io/HutchFlow/gotowebsites/step2/step2.html","_self")
 })
 dispatch2.addEventListener('click',()=>{
-  window.open("file:///E:/temporary/FILE%20TO%20TEXT/HUTCH%20TURORIAL%20NEW/gotowebsites/step3/step3.html","_self")
+  window.open("https://hulk-codder.github.io/HutchFlow/gotowebsites/step3/step3.html","_self")
 })
 account2.addEventListener('click',()=>{
-  window.open("file:///E:/temporary/FILE%20TO%20TEXT/HUTCH%20TURORIAL%20NEW/gotowebsites/step4/step4.html","_self")
+  window.open("https://hulk-codder.github.io/HutchFlow/gotowebsites/step4/step4.html","_self")
 })
