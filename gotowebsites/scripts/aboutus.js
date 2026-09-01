@@ -846,7 +846,7 @@ drivers can only enters in that given time  <br>
                     </div> 
                 `
         document.getElementById("rv_click_only").addEventListener("dblclick", () => {
-            window.open("file:///E:/temporary/FILE%20TO%20TEXT/HUTCH%20TURORIAL%20NEW/gotowebsites/step1/rv.html","_self")
+            window.open("https://hulk-codder.github.io/HutchFlow/gotowebsites/step1/rv.html","_self")
         })
     } else {
         for (const e of chips) {
