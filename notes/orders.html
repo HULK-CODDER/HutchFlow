@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Montserrat:wght@500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
+
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: url('https://hulk-codder.github.io/HutchFlow/notes/ORDERS.jpg') no-repeat center center/cover;
+            color: white;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+        }
+
+        .content2 {
+            max-height: 0;
+            overflow: hidden;
+        }
+
+        .top-bar {
+            background: black;
+            color: white;
+            padding: 15px 25px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .top-bar::before {
+            content: "🚚";
+            font-size: 1.6rem;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 5px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            font-size: 0.95rem;
+            color: #ffcc80;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        section {
+            margin-bottom: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            padding: 15px;
+            border-radius: 12px;
+            text-align: left;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 0.6s ease-in-out;
+        }
+
+        .collapsible {
+            background: linear-gradient(45deg, #ADD8E6, #87CEEB);
+            color: white;
+            cursor: pointer;
+            padding: 12px;
+            width: 100%;
+            height: 100%;
+            border: none;
+            outline: none;
+            font-size: 1.1rem;
+            border-radius: 6px;
+            margin-bottom: 5px;
+            transition: transform 0.2s, background 0.3s;
+        }
+
+        #collapsible2 {
+            background: linear-gradient(45deg, #F5F5F5, #F2F2F2);
+            color: black;
+            cursor: pointer;
+            padding: 12px;
+            width: 100%;
+            height: 100%;
+            border: none;
+            outline: none;
+            font-size: 1.1rem;
+            border-radius: 6px;
+            margin-bottom: 5px;
+            transition: transform 0.2s, background 0.3s;
+        }
+
+        .order_description {
+            font-family: 'Montserrat', 'Poppins', sans-serif;
+            font-size: 17px;
+            font-weight: 700;
+            line-height: 1.75;
+            color: #141414;
+
+            padding: 24px 32px;
+            border-radius: 18px;
+
+            /* Glass effect */
+            background: rgba(255, 255, 255, 0.35);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+
+            /* Thin gradient outline */
+            border: 1px solid rgba(255, 255, 255, 0.45);
+            outline: 1px solid rgba(0, 0, 0, 0.05);
+
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+        }
+
+        .hulk:hover {
+            transform: translateY(-4px) scale(1.1, 1.2);
+            box-shadow: 0 12px 38px rgba(0, 0, 0, 0.2);
+            font-size: 25px;
+            transition: all 0.5s ease;
+            background: rgba(255, 255, 255, 0.9);
+            transform-origin: bottom centre;
+        }
+
+        .hulk2 {
+            flex: 1;
+            transition: all 0.3s ease;
+            overflow: visible;
+
+        }
+
+        .searchInput {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border-radius: 6px;
+            border: none;
+            outline: none;
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        .collapsible:hover {
+            transform: translateY(-2px);
+            background: linear-gradient(45deg, #ffb74d, #ff7043);
+        }
+
+        .content {
+            max-height: 0;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 6px;
+            margin-bottom: 10px;
+            transition: max-height 0.4s ease, padding 0.3s ease;
+            padding: 0 15px;
+            color: black
+        }
+
+        .content.show {
+            padding: 10px 15px;
+            max-height: 300px;
+            /* or any height you prefer */
+            overflow-y: auto;
+            /* adds scroll when content exceeds height */
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            /* optional: small border */
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            padding: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            margin-bottom: 5px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        ul li:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateX(5px);
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+        }
+
+        .modal {
+            position: relative;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #fff;
+            color: #000;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .close-btn:hover {
+            transform: translateY(-2px);
+            background: linear-gradient(45deg, #ffb74d, #ff7043);
+        }
+
+        .beginner-split {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .beginner-section {
+            flex: 1;
+            border: 2px solid blue;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 10px;
+            border-radius: 8px;
+            white-space: pre-wrap;
+            box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            /* smooth animations */
+            overflow: visible;
+
+        }
+
+        .beginner-section:hover {
+            transform: translateY(-4px) scale(1.3);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+            background: rgba(255, 255, 255, 0.9);
+            transform-origin: top left;
+        }
+
+        #beginner-section2:hover {
+            transform: translateY(-4px) scale(1.3);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+            background: rgba(255, 255, 255, 0.9);
+            transform-origin: top right;
+        }
+
+        #beginner-section3:hover {
+            transform: translateY(-4px) scale(1.3);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+            background: rgba(255, 255, 255, 0.9);
+            transform-origin: bottom left;
+        }
+
+
+        @media (max-width:768px) {
+            .beginner-split {
+                flex-direction: column;
+            }
+        }
+
+        #clientSearch {
+            width: 100%;
+            text-align: center;
+            padding: 8px;
+            margin-bottom: 10px;
+            border-radius: 6px;
+            border: none;
+            outline: none;
+            font-size: 1rem;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top-bar">Hutch Transportation</div>
+
+    <div class="container">
+        <h1>Orders</h1>
+        <div class="subtitle">Order Data Entering</div>
+
+        <section class="hulk2">
+            <p class="order_description hulk">We record and manage all order-related information in Dispatch Panda. This
+                data is compiled directly from customer emails and systematically entered into the platform to ensure
+                every shipment request is accurately documented and tracked. By maintaining this centralized process, we
+                ensure clarity, consistency, and seamless execution of all dispatch activities.</p>
+        </section>
+
+        <section>
+            <button class="collapsible">Beginner Understanding</button>
+            <div class="content">
+                <div class="beginner-split">
+                    <div class="beginner-section">RAILWAYS
+                        1. CN: CANADA NATIONAL RAILWAYS
+                        2. CP: CANADA PACIFIC RAILWAYS
+                        TERMINALS IN RAILWAYS
+                        CN: MALPORT,MISC{ MISSISSAUGA },BRAMPTON
+                        CP: VAUGHAN
+                        COMPANY YARDS
+                        HUTCH YARD{MAIN YARD}
+                        KIMBLE YARD {KIMBLE STREET}
+                        CONTAINER TYPES
+                        KC1: 8X6X20 {STANDARD} [24,000]
+                        KC2: 8X6X40 {STANDARD} [27,000]
+                        KC4: 9X6X40 {HIGH CUBE}[27,000]
+                        KC5: 9X6X45 {HIGH CUBE}[27,000]
+                        KR4: 9X6X40 {HIGH CUBE}(REEFER)[27,000][CAN BE STANDARD TOO]
+                        KC7: 53 {RARE CASE}[27,000]
+                        KC8: 9X6X20 {HIGH CUBE}[27,000]
+                        KO4: 9X6X40 {OPEN HAT,}[27,000]
+                        SPECIAL INSTRUCTION
+                        CONATAINER CONTAINS 4 ALPHABETS AT START AND 7 INTEGERS AT END{TOTAL 11 CHARACTERS}
+                        PICKUP NUMBER ALWAYS CONTAINS 6 NUMBER {INTEGERS ONLY}
+                    </div>
+                    <div class="beginner-section " id="beginner-section2">IMPORTANT THINGS IN ORDER
+                        1. CLIENT NAME {CAN BE DIFFERENT FROM WRITTER ONE}
+                        2. PICKUP LOCATION {USUALLY TERMINAL}
+                        3. SHIPLINE/CARRIER
+                        4. CONTAINER NUMBER {11 TOKENS}
+                        5. PICKUP NUMBER {6 INTEGERS}
+                        6. REFERENCE/FILE NUMBER {FEW ORDER DOESN'T REQUIRED IT }
+                        7. DELIVERY ADDRESSS {SIMMILER AND DIFFERENT IN OUR SYSYTEM}
+                        8. CONTAINER TYPE/SIZE
+                        9. CONTAINER WEIGHT {CAN RECHANGE TO ROUND IT }
+                        10. NOTE/INSTRUCTION {MOST HUSTLE GIVVER/ EXCEPTION}
+                        MY ADDITION
+                        11. COMMUDITY {TO KNOW THE DG/ REEFER}
+                    </div>
+                </div>
+                <div class="beginner-section" id="beginner-section3" style="margin-top:10px;width:98%;"> BASIC ORDER
+                    DATA ENTERING
+
+                    1. CHECK THE MAIL FOR THE ORDER
+                    2. PRINT THE MAIL OR ATTACHMENT WHERE EVER THE ORDER DETAILS ARE GIVEN.
+                    3. TRACE THE CONTAINER IN TERMINAL SITE WHICH IS GIVEN .AND WRITE IT DOWN ON PRINTTED ORDER
+                    4. SAVE THE ORDER IN TERMINAL DISPATCH INDIAN NEW ORDER SECTION.
+                    5. HIGHLIGHT THE REQUIRED *10 DETAILS IN ORDER
+                    6. FILL ALL THE DETAILS ONE BY ONE IN DISPATCH PANDA
+                    7. SUMBIT TO SAVE .
+                    8. WRITE DOWN THE SHIPMENT NUMBER OF SAVED ORDER
+                    9. RECHEKH ALL THE DETAILS YOU FILLED
+                    10. WRITE DOWN THE ORDER NUMBER [SHIP. NO.] CONT. NO. ,TRACING <TYPE,SIZE,ETA /STD>
+
+                        {IF GROUNDED CHECK PLACE OF IT AND CHANGE TERMINAL ACC TO IT}
+                        (CHANGE IT IN STARTING TERMINAL TYPE)
+                        [NOT IN DROP AND MOVE ]
+                        [NEED TO ADD RV TOO][SAME DAY]
+                        .</div>
+            </div>
+
+            <button class="collapsible">Clients</button>
+            <div class="content">
+                <input type="text" id="clientSearch" placeholder="Search clients...">
+                <ul id="clientList">
+                    <li>DB SCHENKER</li>
+                    <li>CUSTOM EXAMS 1</li>
+                    <li>CUSTOM EXAMS 2</li>
+                    <li>CH. ROBINSONS 1</li>
+                    <li>CH. ROBINSONS 2</li>
+                    <li>TRAFFIC TECH QC</li>
+                    <li>TRAFFIC TECH INC</li>
+                    <li>SEAFRIGO</li>
+                    <li>NUERA LOGISTICS</li>
+                    <li>ALL GOLD IMPORT</li>
+                    <li>WHALE LOGISTICS</li>
+                    <li>EFL</li>
+                    <li>Instore Products Ltd.</li>
+                    <li>INSTORE PRODUCTS LTD</li>
+                    <li>Instorage Distribution </li>
+                    <li>OAK VILLE</li>
+                    <li>ABBORT OF ENGLAND</li>
+                    <li>CHARLES MASSON</li>
+                    <li>ARA Enterprises </li>
+                    <li>Cantex Distribution Inc</li>
+                    <li>UNIVERSAL FASTENING </li>
+                    <li>HAVELI </li>
+                    <li>CALENDAR CLUB</li>
+                    <li>Jet-Sea </li>
+                    <li>NCC Logistics</li>
+                    <li>Dahnay Logistics</li>
+                </ul>
+            </div>
+
+            <button class="collapsible">Special Cases</button>
+            <div class="content">
+                <input type="text" id="specialSearch" class="searchInput" placeholder="Search special cases...">
+                <div id="specialCasesList">
+                    <button class="collapsible" id="collapsible2">NUERA Logistics</button>
+                    <div class="content">
+                        <p>CLIENT REFERENCE AND CONTAINER NUMBER IN CLIENT REFERENCE BOX</p>
+                    </div>
+
+                    <button class="collapsible" id="collapsible2">GROUNDED SIMPLE</button>
+                    <div class="content">
+                        <p>CHECK LOCATION GROUNDED AND CHANGE ONLY AT FIRST TYPE NOT IN DROP AND MOVE (SAME DAY RV)</p>
+                    </div>
+
+                    <button class="collapsible" id="collapsible2">GIVEN DELIVERY DATE</button>
+                    <div class="content">
+                        <p>WE NEED TO FILL EXACT DELIVERY DATE AND TIME GIVEN IN ORDER INSTRUCTION (MOSTLY TEPPERMAN)
+                        </p>
+                    </div>
+
+                    <button class="collapsible" id="collapsible2">GIVEN DELIVERY DATE [MAIL]</button>
+                    <div class="content">
+                        <p>ASK JOT MAM BEFORE — WE NEED TO FILL EXACT DELIVERY DATE AND TIME GIVEN IN MAIL</p>
+                    </div>
+
+                    <button class="collapsible" id="collapsible2">ADDRESS ABNORMAL</button>
+                    <div class="content">
+                        <p>IF SOMETHING NEW IS IN ADDRESS THAT ISN’T IN PANDA ADDRESS THEN ADD THE GIVEN ADDRESS IN
+                            DRIVER NOTE</p>
+                    </div>
+
+                    <button class="collapsible" id="collapsible2">SEAFRIGO [MAIL]</button>
+                    <div class="content">
+                        <p>IF ORDER IS IN MAIL AND WEIGHT / REFERENCE NOT GIVEN USE CONTAINER NUMBER AS REFERENCE AND
+                            WEIGHT FROM PU ATTACHMENT (SSL ATTACHMENT)</p>
+                    </div>
+
+                    <button class="collapsible" id="collapsible2">CH ROBINSON [TANYA, NICOLES]</button>
+                    <div class="content">
+                        <p>DON'T SEND EDI</p>
+                    </div>
+
+                    <button class="collapsible" id="collapsible2">TODAY ETA {PAD/DESTIN}</button>
+                    <div class="content">
+                        <p>SAME DAY WHICHEVER IS OPENED — ASK JOT MAM FOR IT</p>
+                    </div>
+
+                    <button class="collapsible" id="collapsible2">TODAY ETA [NOT GROUNDED]</button>
+                    <div class="content">
+                        <p>SET RV ACCORDING TO ETA (2 DAYS LATER) AND GIVE TO JOT MAM</p>
+                    </div>
+
+                    <button class="collapsible" id="collapsible2">CLOROX</button>
+                    <div class="content">
+                        <p>NEED PACKING LIST — IF NOT GIVEN, EMAIL FOR IT</p>
+                    </div>
+
+                    <button class="collapsible" id="collapsible2">TRAFFIC TECH INC.</button>
+                    <div class="content">
+                        <p>SOMETIMES THEY SEND MORE THAN ONE EMAIL — YOU CAN FIND SHIPLINE OR SOME MISSING INFO THERE
+                        </p>
+                    </div>
+
+                    <button class="collapsible" id="collapsible2">EFL CLIENT</button>
+                    <div class="content">
+                        <p>THEY DON’T HAVE REFERENCE NUMBER</p>
+                    </div>
+
+                    <button class="collapsible" id="collapsible2">TRAFFIC TEC TO TRAFFIC TEC</button>
+                    <div class="content">
+                        <p>NEED TO CHANGE CHARGES FROM 420 TO 410</p>
+                    </div>
+
+                    <button class="collapsible" id="collapsible2">FARROW LOGISTICS / HANGCHA FORKLIFE CANADA INC /
+                        ACCURISTIC / ZODIAC</button>
+                    <div class="content">
+                        <p>MOSTLY DG CONTAINER</p>
+                    </div>
+
+                    <button class="collapsible" id="collapsible2">WHALE LOGISTICS</button>
+                    <div class="content">
+                        <p>REFERENCE NUMBER IS DO#</p>
+                    </div>
+
+                    <button class="collapsible" id="collapsible2">GIVEN APPT</button>
+                    <div class="content">
+                        <p>IN SOME ORDERS “APPOINTMENT” MEANS DELIVERY DATE & TIME IS ALREADY GIVEN (USUALLY IN CH
+                            ROBINSON → TRAFFIC TECH). FILL EXACTLY SAME DATE & TIME IN ORDER.</p>
+                    </div>
+
+                    <button class="collapsible" id="collapsible2">MASTER GROUP</button>
+                    <div class="content">
+                        <p>P&D CHARGE CHANGE TO 300</p>
+                    </div>
+
+                    <button class="collapsible" id="collapsible2">ALL GOLD [REEFER]</button>
+                    <div class="content">
+                        <p>GENSET IS ALWAYS REQUIRED — TEMP IS -18 TO 20</p>
+                    </div>
+
+                    <button class="collapsible" id="collapsible2">SEAFRIGO [REEFER]</button>
+                    <div class="content">
+                        <p>REEFER CONTAINER CHARGES ARE 230 (SAME AS CH ROBINSON)</p>
+                    </div>
+
+                    <button class="collapsible" id="collapsible2">Advantech [OFF HIRE]</button>
+                    <div class="content">
+                        <p>USUALLY FROM TRAFFIC TECH THEY GO TO HUNT — CONFIRM AND CHECK EMPTY RETURN LOCATION</p>
+                    </div>
+
+                    <button class="collapsible" id="collapsible2">OLD STATUS | EMPTY DEREMP</button>
+                    <div class="content">
+                        <p>PUT NOTE IN RED TAIL AND SAVE BOTH SIDES (CP / CN)</p>
+                    </div>
+
+                    <button class="collapsible" id="collapsible2">CANCEL ORDER</button>
+                    <div class="content">
+                        <p>DEACTIVATE FROM PANDA AND REMOVE FROM TERMINAL SAVING</p>
+                    </div>
+
+                    <button class="collapsible" id="collapsible2">CLIENT TO CLIENT</button>
+                    <div class="content">
+                        <p>CLIENT TO CLIENT ORDER WILL ALWAYS BE FROM SAME CONSIGNEE EVEN IF ORDER IS FROM SOMEONE ELSE
+                        </p>
+                    </div>
+
+                    <button class="collapsible" id="collapsible2">DELIVERY DATE IN MAIL</button>
+                    <div class="content">
+                        <p>IF DELIVERY DATE IS GIVEN, WRITE IT WITH NOTE</p>
+                    </div>
+
+                    <button class="collapsible" id="collapsible2">SENDER NAME</button>
+                    <div class="content">
+                        <p>WRITE SENDER NAME ON EVERY ORDER (ESPECIALLY CH ROBIN)</p>
+                    </div>
+
+                    <button class="collapsible" id="collapsible2">NOR {RF}</button>
+                    <div class="content">
+                        <p>NON-OPERATING REEFER — THESE ARE DRY CONTAINERS</p>
+                    </div>
+
+                    <button class="collapsible" id="collapsible2">TRAFFIC TECH INC,</button>
+                    <div class="content">
+                        <p>IF NO TRACING FOR CONTAINER, MAIL OR CHECK FOR ANOTHER MAIL</p>
+                    </div>
+
+                    <button class="collapsible" id="collapsible2">ALL GOLD [NO INFO]</button>
+                    <div class="content">
+                        <p>CHECK OTHER MAIL / ATTACHMENT FOR OTHER TERMINAL BEFORE MAILING</p>
+                    </div>
+
+                    <button class="collapsible" id="collapsible2">OTHER</button>
+                    <div class="content">
+                        <p>PRINT 2 COPIES — ONE FOR US, ONE FOR JOT MAM</p>
+                    </div>
+
+                    <button class="collapsible" id="collapsible2">SALES CONTEX</button>
+                    <div class="content">
+                        <p>WRITE ACCORDING TO TRACING (CONTAINER TYPE) EVEN IF ORDER SAYS 40FT</p>
+                    </div>
+
+                    <button class="collapsible" id="collapsible2">DO NOT DELIVER</button>
+                    <div class="content">
+                        <p>IF GIVEN “DO NOT DELIVER” IN MAIL OR ORDER, PUT IN RED TAIL</p>
+                    </div>
+
+                    <button class="collapsible" id="collapsible2">STOP SIGN</button>
+                    <div class="content">
+                        <p>IF STOP SIGN IN TRACING AND EMPTY RETURN LOCATION IS GIVEN, NO NEED TO MAIL (EXCEPT
+                            CONFIRMATION)</p>
+                    </div>
+
+                    <button class="collapsible" id="collapsible2">NO INFO</button>
+                    <div class="content">
+                        <p>NEED 2 PRINTS — ONE FOR OURSELF AND ONE FOR “NO INFO” SHELF</p>
+                    </div>
+                    <button class="collapsible" id="collapsible2">EXTRA</button>
+                    <div class="content">
+                        <p>NEED 2 PRINTS — ONE FOR OURSELF AND ONE FOR “NO INFO” SHELF</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <button class="collapsible">Abnormal Orders</button>
+            <div class="content content2">
+                <button class="collapsible" id="collapsible2">REEFER CONTAINER</button>
+                <div class="content">
+                    <p>0. LOAD FILL SELECT REEFER-HC-40<br>
+                        1. TEMPERATURE FILL [+,-<CHECK>]<br>
+                            2. GENSET FILL<br>
+                            3. FILL CHARGES FOR GENSET<br>
+                            4. GENSTET CHARGES FOR CH.& SEAFRIGO{230} FOR OTHERS {275}<br>
+                            4. REQUIRED BOTH EVEN IF ONE MISS NEED TO EMAIL AND CONFIRM<br>
+                            5. WRITE NOTE [GENSTET IS REQUIRED,TEMP{GIVEN}]<IN(WEB NOTE,DRIVER NOTE, RED TAIL)><br>
+                                #IMPORTANT NOTE: IF ANY ONE OF IT OR BOTH ARE MISSING NEED TO WRITE NOTE ABOUT IT IN
+                                NOTE SECTIONS <br>
+                                >< IF ORDER IS FOR INVADER STORAGE NO NEED TO CONFIRM GENSET CAUSE IT ALWAYS NEEDED<br>
+                                    ><ALL GOLD GENSET IS ALWAYS NEEDED AND TEM IS 18-20 .</p>
+                </div>
+
+                <button class="collapsible" id="collapsible2">DANGEROUS GOODS CONTAINER [DG]</button>
+                <div class="content">
+                    <p>0. CHECK IN THE MAIL AND COMMUDITY FOR DG CONTAINER<br>
+                        [WRITE IT ON PAPER TOO ]<br>
+                        1. AFTER THAT WE NEED TO CHECK THE DG PAPPER IS IT GIVEN OR NOT .<br>
+                        3. IF NOT GIVEN THEN NEED TO SEND EMAIL TO CLIENT AND ALSO NEED TO UPDATE THE DETAILS IN
+                        NOTES{WEB NOTE, DRIVER NOTE, RED TAILS<br>
+                        FOR EX. IF GIVEN THEN WE NEED TO WRITE DG CONTAINER: DG PAPER WORK IN EMAIL}<br>
+                        IF IT IS NOT GIVEN THEN : WE NEED TO WRITE DG CONTAINER , DG PAPER WORK INFO PENDING<br>
+                        4. CHARGES UPDATE {150}<br>
+                        5. CHECK CLASSES IN COMMUDITY<br>
+                        [LITHIUM BATTERY,HEDGR GRASS TRIMMER,CHAINSAW,FORKLIFT CHARGER]<br>
+                        [CUSTOMERS]{FARROW LOGISTICS,HANGCHA FORKLIFE CANADA INC,ACCURISTIC,ZODIAC } <br>
+                        .</p>
+                </div>
+
+                <button class="collapsible" id="collapsible2">CUSTOMS EXAMS</button>
+                <div class="content">
+                    <p>1. GO TO TRACING:AND CHECK IT IS GROUNDED OR NOT <br>
+                        2/[IN CN]IF IT IS GROUNDED THEN WE NEED TO CHECK WHERE IT IS GROUNDED{MALPORT,BRAMTON}<br>
+                        3. IT MUST HAVE INBOND,STOP||STOP STORAGE,<br>
+                        4.IF WE ARE TRACING IN CP :<br>
+                        TYPE/SIZE ,HOLD{CC,MULTIPLE},GROUNDER{YES},LFD{NEED TO EXTED DATE BY ONE DAY}<br>
+                        5.ONLY NEED TO FILL:<br>
+                        CONTAINER NO.,REFERENCE NUMBER, DELIVERY DATE,STORAGE DATE {IN CP},DROPS AND MOVE{CHECK AND
+                        CHANGE LAST DROP ACC TO FIRST TEMINAL}<br>
+                        6.IF REEFER CAME WE CONFIRM IT THROUGH ANIKA MAAM NOT EMAIL, AND WE DON'T FILL THE DELIVERY
+                        DATE.<br>
+                        6.5. FOR GENSET AND TEMP WE MAIL OURSELF<br>
+                        7. FOR DG PAPER WORK IS GIVEN BY TERMINAL SO NO NEED TO DO EMAIL FOR IT.[NOTE DG
+                        CONTAINER{DRIVER NOTE~~RED TAIL}]<br>
+                        {DG CHARGES UPDATE }<br>
+                        8. NO THINGS:<br>
+                        SHIPLINE,PICKUP NUMBER .<br>
+                        9. CHECK FOR MULTIPLE ORDERS TOO,IF EXIST MORE THEN ONE NEED TO WRITE NOTE {RED TAIL} <br>
+                        NOTE: SAME CONTAINER NUMBER FOR CUSTOM EXAM/GIVEN CLIENT<br>
+                        10. SPECIAL NOTE:: IF CONTAINER IS ON PAD PLACEMENT||DESTINATION THEN WE NEED TO UPDATE THE
+                        NOTE{RED TAIL} EX: CONTAINER IS ON PAD PLACEMENT||DESTINATION YET PLEASE TRACE BEFORE DISPATCH
+                        <br>
+                        AND NO NEED TO CHANGE ANYTHING IN DROP AND MOVES<br> .</p>
+                </div>
+
+                <button class="collapsible" id="collapsible2">NO INFO</button>
+                <div class="content">
+                    <p>1. IF WE RECIVED NO INFO ORDER <br>
+                        THEN WE NEED TO SAVE IT IN BOTH TERMINALS IN CP AND CN <br>
+                        IN NO INFO FOLDERS<br>
+                        2. AFTER FILLING THE ORDER NORMALLY ADD NOTE [NO INFO ]IN NOTE SECTION {RED TAIL, WEB NOTE}<br>
+                        3.IF ETA IS NOT GIVEN IN EMAIL THEN WE NEED TO SEND EMAIL TO CLIENT.<br>
+                        [NEED TO FILL ETA IN NOTES ]<br>
+                        .</p>
+                </div>
+
+                <button class="collapsible" id="collapsible2">OFF HIRE</button>
+                <div class="content">
+                    <p>1. WE NEED THREE MAJOR THINGS IN OFF HIRE<br>
+                        {LAST DROP LOCATION,EXPIRY DATE , REFERENCE NUMBER }<br>
+                        2. IF DELIVERY POINT IS SEATAINER TERMINAL THEN WE TELL MAM SHE WILL TAKE CONFIRMATION THROUGH
+                        CALL<br>
+                        3. WRITING IN NOTE <br>
+                        [OFF HIRE CONTAINER NEED CONFIRMATION <br>
+                        ,REFERENCE NUMBER:,EXPIRY DATE DELIVERY ADDRESS :.{DRIVER NOTE }<br>
+                        OFF HIRE CONFIRMATION IN RED TAIL , OFF HIRE REFERENCE NUMBER:,EXPIRY DATE[ DISPATCH NOTE ]<br>
+                        AFTER CONFIRMING WE REPLACE NEED CONFIRMATIO N WITH GOOD TO DELIVER <br>
+                        AND ALSO ADD IT TO DISPATCH BOARD NOTE <br>
+                        4.CHANGE DROP AND MOVE LAST LOCATION ACC TO IT<br>
+                        5. FOR OTHER TERMINALS CONFIRMATION WE NEED TO EMAIL WHERE ITS GOING<br>
+
+                        {CHARGES NOTES }<br>
+                        ` IF CUSTOMER IS FROM OPPOSITE SIDE OF 427 HIGHWAY AND RETURN LOCATION IS MUSKIT AND ELITE THEN
+                        WE NEED TO UPDATE CHARGES [75$]<br>
+                        ZONE 2 CUSTOMERS ARE ALL IN THIS CATOGARY AND SOME OF THE ZONE 1 CUSTOMERS ARE TOO <br>`
+                        .</p>
+                </div>
+
+                <button class="collapsible" id="collapsible2">OTHER</button>
+                <div class="content">
+                    <p>1.NEED TO MAKE TWO PRINT OF THE ORDERS <br>
+                        ONE FOR OURSELF 2ND FOR JOT MAM <br>
+                        2. WE SELECT AVAILIBLE TERMINAL THAT IS GIVEN <br>
+                        3. IF TERMINAL GIVEN ISN'T AVAILIBLE IN PANDA WE SELECT OTHER<br>
+                        4IN CASE OF OTHER WE NEED TO ADD DROP AND MOVE OURSELF <br>
+                        .</p>
+                </div>
+
+                <button class="collapsible" id="collapsible2">PAD PLACEMENT||AT DESTINATION</button>
+                <div class="content">
+                    <p>1. IF AT DESTINATION\PAD CONTAINER COME IN TRACING <br>
+                        THEN FIRST WE CHECK WHERE IT IS DESTINED\PAD<br>
+                        2. THEN WE FILL ORDER NORMALLY BUT WE ADD NOTE ::CONTAINER IS ON PAD PLACEMENT||DESTINATION YET
+                        PLEASE TRACE BEFORE DISPATCH {RED TAIL}<br>
+                        3. RV SETTING <br>
+                        [THAT DAY RV WHICHEVER IS OPENED ]<br>
+                        [CAN ALSO ASK JOT MAM ]<br>
+                    </p>
+                </div>
+
+                <button class="collapsible" id="collapsible2">EXTRAS</button>
+                <div class="content ">
+                    <p>CH ROBINSONS<br>
+                        CHECK FOR APPOINTMENTS ANDD CHANGE TO <br>
+                        EXACT DATE AND TIME <br>
+                        NOTE ON WEB NOTE AND RED TAIL</p>
+                </div>
+            </div>
+            <!-- JOT MAM Section -->
+            <button class="collapsible">ORDERS FOR JOT MAM</button>
+            <div class="content">
+                <button class="collapsible" id="collapsible2">TEPPERMAN</button>
+                <div class="content">
+                    <p>WHERE ADDRESS IS TEPPERMAN (TRAFFIC TECH) [CONSIGNEE]</p>
+                </div>
+
+                <button class="collapsible" id="collapsible2">FRIDAY ETA</button>
+                <div class="content">
+                    <p>ON FRIDAY – EVERY ORDER THAT IS IN ETA TILL SUNDAY</p>
+                </div>
+
+                <button class="collapsible" id="collapsible2">TODAY ETA</button>
+                <div class="content">
+                    <p>ORDER THAT IS OF SAME-DAY ETA (DAY OF ORDER FILLING)</p>
+                </div>
+
+                <button class="collapsible" id="collapsible2">COSTCO</button>
+                <div class="content">
+                    <p>IF ORDER IS TO COSTCO (CONSIGNEE)</p>
+                </div>
+
+                <button class="collapsible" id="collapsible2">GROUNDED</button>
+                <div class="content">
+                    <p>NEED TO GIVE THE GROUNDED ONE'S</p>
+                </div>
+
+                <button class="collapsible" id="collapsible2">OTHER</button>
+                <div class="content">
+                    <p>ORDERS THAT ARE FROM OTHER TERMINAL</p>
+                </div>
+
+                <button class="collapsible" id="collapsible2">EXTRA</button>
+                <div class="content">
+                    <p>ORDERS THAT ARE FROM OTHER TERMINAL</p>
+                </div>
+            </div>
+            <!-- LOAD NOTES Section -->
+            <button class="collapsible" onclick="toggleContent(this)"
+                ondblclick="window.open('file:///E:/temporary/notes/LOAD_NOTES.HTML')">
+                LOAD NOTES
+            </button>
+            <div class="content id=" collapsible2"">
+                <p>DOUBLE CLICK TO ACCESS THE NOTES THAT WE FILL IN ORDERS.....</p>
+            </div>
+
+
+        </section>
+    </div>
+
+    <div class="modal-overlay" id="clientModal">
+        <div class="modal">
+            <button class="close-btn" onclick="closeModal()">Close</button>
+            <img id="modalImg" src="" alt="Client">
+            <p id="modalDesc"></p>
+        </div>
+    </div>
+
+    <script>
+        const coll = document.getElementsByClassName("collapsible");
+        for (let i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                const content = this.nextElementSibling;
+                if (content.classList.contains("show")) {
+                    content.style.maxHeight = null;
+                    content.classList.remove("show");
+                } else {
+                    content.classList.add("show");
+                    content.style.maxHeight = content.scrollHeight + "px";
+                }
+            });
+        }
+        document.getElementById("clientSearch").addEventListener("keyup", function () {
+            let filter = this.value.toLowerCase();
+            let items = document.getElementById("clientList").getElementsByTagName("li");
+            for (let i = 0; i < items.length; i++) {
+                let text = items[i].textContent || items[i].innerText;
+                items[i].style.display = text.toLowerCase().includes(filter) ? "" : "none";
+            }
+        });
+        const clientData = {
+            "DB SCHENKER": { img: "https://hulk-codder.github.io/HutchFlow/notes/DB_SCHENKER.png", desc: "DB Schenker is a global logistics company offering supply chain solutions." },
+            "CUSTOM EXAMS 1": { img: "https://hulk-codder.github.io/HutchFlow/notes/CUSTOM_EXAMS_1.png", desc: "DB Schenker is a global logistics company offering supply chain solutions." },
+            "CUSTOM EXAMS 2": { img: "https://hulk-codder.github.io/HutchFlow/notes/CUSTOM EXAMS 2.png", desc: "DB Schenker is a global logistics company offering supply chain solutions." },
+            "CH. ROBINSONS 1": { img: "https://hulk-codder.github.io/HutchFlow/notes/CH_ROBINSONS_1.png", desc: "CH Robinsons is a global transport and logistics company." },
+            "CH. ROBINSONS 2": { img: "https://hulk-codder.github.io/HutchFlow/notes/CH_ROBINSONS_2.png", desc: "CH Robinsons is a global transport and logistics company." },
+            "TRAFFIC TECH QC": { img: "https://hulk-codder.github.io/HutchFlow/notes/TRAFFIC_TECK_QC.png", desc: "Traffic Tech specializes in transport management and logistics services." },
+            "TRAFFIC TECH INC": { img: "https://hulk-codder.github.io/HutchFlow/notes/TRAFFIC_TECK_INC.png", desc: "Traffic Tech specializes in transport management and logistics services." },
+            "SEAFRIGO": { img: "https://hulk-codder.github.io/HutchFlow/notes/SEAFRIGO.png", desc: "Traffic Tech specializes in transport management and logistics services." },
+            "NUERA LOGISTICS": { img: "https://hulk-codder.github.io/HutchFlow/notes/NUERA_LOGISTICS.png", desc: "Nuera Logistics offers supply chain management with innovative solutions." },
+            "ALL GOLD IMPORT": { img: "https://hulk-codder.github.io/HutchFlow/notes/ALL_GOLD_IMPORTS.png", desc: "All Gold Import handles international import and export services." },
+            "WHALE LOGISTICS": { img: "https://hulk-codder.github.io/HutchFlow/notes/WHALE_LOGISTICS.png", desc: "All Gold Import handles international import and export services." },
+            "EFL": { img: "https://hulk-codder.github.io/HutchFlow/notes/EFL.png", desc: "All Gold Import handles international import and export services." },
+            "Instore Products Ltd.": { img: "https://hulk-codder.github.io/HutchFlow/notes/Instore.png", desc: "All Gold Import handles international import and export services." },
+            "INSTORE PRODUCTS LTD": { img: "https://hulk-codder.github.io/HutchFlow/notes/INSTORE PRODUCTS.png", desc: "All Gold Import handles international import and export services." },
+            "Instorage Distribution": { img: "https://hulk-codder.github.io/HutchFlow/notes/Instorage.png", desc: "All Gold Import handles international import and export services." },
+            "OAK VILLE": { img: "https://hulk-codder.github.io/HutchFlow/notes/OAKVILLE.png", desc: "All Gold Import handles international import and export services." },
+            "ABBORT OF ENGLAND": { img: "https://hulk-codder.github.io/HutchFlow/notes/ABBOT OF ENGLAND.png", desc: "All Gold Import handles international import and export services." },
+            "CHARLES MASSON": { img: "https://hulk-codder.github.io/HutchFlow/notes/CHARLES.png", desc: "All Gold Import handles international import and export services." },
+            "Cantex Distribution Inc": { img: "https://hulk-codder.github.io/HutchFlow/notes/CANTEX.png", desc: "All Gold Import handles international import and export services." },
+            "ARA Enterprises": { img: "https://hulk-codder.github.io/HutchFlow/notes/ARA.png", desc: "All Gold Import handles international import and export services." },
+            "UNIVERSAL FASTENING": { img: "https://hulk-codder.github.io/HutchFlow/notes/UNIVERSAL.png", desc: "All Gold Import handles international import and export services." },
+            "HAVELI": { img: "https://hulk-codder.github.io/HutchFlow/notes/HAVELI.png", desc: "All Gold Import handles international import and export services." },
+            "CALENDAR CLUB": { img: "https://hulk-codder.github.io/HutchFlow/notes/CALENDAR.png", desc: "All Gold Import handles international import and export services." },
+            "Jet-Sea": { img: "https://hulk-codder.github.io/HutchFlow/notes/JETSEA.png", desc: "All Gold Import handles international import and export services." },
+            "NCC Logistics": { img: "https://hulk-codder.github.io/HutchFlow/notes/NCC.png", desc: "All Gold Import handles international import and export services." },
+            "Dahnay Logistics": { img: "https://hulk-codder.github.io/HutchFlow/notes/Dahnay Logistics.png", desc: "All Gold Import handles international import and export services." }
+        };
+        function openModal(name) { document.getElementById("modalImg").src = clientData[name].img; document.getElementById("modalDesc").innerText = clientData[name].desc; document.getElementById("clientModal").style.display = "flex"; }
+        function closeModal() { document.getElementById("clientModal").style.display = "none"; }
+        document.querySelectorAll("#clientList li").forEach(item => { item.addEventListener("click", () => { let name = item.textContent.trim(); if (clientData[name]) openModal(name); }); });
+        document.getElementById("specialSearch").addEventListener("keyup", function () {
+            let filter = this.value.toLowerCase();
+            let items = document.getElementById("specialCasesList").getElementsByTagName("button");
+            for (let i = 0; i < items.length; i++) {
+                let text = items[i].textContent || items[i].innerText;
+                items[i].style.display = text.toLowerCase().includes(filter) ? "" : "none";
+                if (items[i].nextElementSibling && items[i].nextElementSibling.classList.contains("content")) {
+                    items[i].nextElementSibling.style.display = text.toLowerCase().includes(filter) ? "" : "none";
+                }
+            }
+        });
+
+    </script>
+</body>
+
+</html>
