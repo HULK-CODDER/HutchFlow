@@ -1371,7 +1371,7 @@ EFL
 
         // Removed inner HTML template string
         expain.innerHTML = `<div class="explain_card">
-    <img src="../images/extras/1.png" alt="Pad Placement and Destination Tracking">
+    <img src="../images/EXTRAS/1.png" alt="Pad Placement and Destination Tracking">
     <div class="set">
         <h1>PAD PLACEMENT / DESTINATION</h1>
         <p class="extra_p">
@@ -1383,7 +1383,7 @@ EFL
     </div>
 </div>
         <div class="explain_card">
-    <img src="../images/extras/2.png" alt="Container Check Digit Calculation">
+    <img src="../images/EXTRAS/2.png" alt="Container Check Digit Calculation">
     <div class="set">
         <h1>CONTAINER CHECK DIGIT (ISO 6346)</h1>
         <p class="extra_p">
@@ -1398,7 +1398,7 @@ EFL
     </div>
 </div>
 <div class="explain_card">
-    <img src="../images/extras/3.png" alt="Appointment Team Routing Rules">
+    <img src="../images/EXTRAS/3.png" alt="Appointment Team Routing Rules">
     <div class="set">
         <h1>APPOINTMENT TEAM ROUTING</h1>
         <p class="extra_p">
@@ -1412,7 +1412,7 @@ EFL
     </div>
 </div>
 <div class="explain_card">
-    <img src="../images/extras/4.png" alt="Shipline Mapping Configurations">
+    <img src="../images/EXTRAS/4.png" alt="Shipline Mapping Configurations">
     <div class="set">
         <h1>SHIPLINES ON ORDER MAPPING</h1>
         <p class="extra_p">
@@ -1435,7 +1435,7 @@ EFL
     </div>
 </div>
 <div class="explain_card">
-    <img src="../images/extras/5.png" alt="Client Mapping Configurations">
+    <img src="../images/EXTRAS/5.png" alt="Client Mapping Configurations">
     <div class="set">
         <h1>CLIENT SYSTEM MAPPING</h1>
         <p class="extra_p">
@@ -1461,7 +1461,7 @@ EFL
     </div>
 </div>
 <div class="explain_card">
-    <img src="../images/extras/6.png" alt="Client and Consignee Operational Rules">
+    <img src="../images/EXTRAS/6.png" alt="Client and Consignee Operational Rules">
     <div class="set">
         <h1>CLIENT & CONSIGNEE OPERATIONAL RULES</h1>
         <p class="extra_p">
