@@ -23,7 +23,7 @@ ftutorial.addEventListener('click',()=>{
 })
 
 fgallary.addEventListener('click',()=>{
-  window.open("file:///E:/temporary/FILE%20TO%20TEXT/HUTCH%20TURORIAL%20NEW/gotowebsites/gallary/gallary.html","_self")
+  window.open("https://hulk-codder.github.io/HutchFlow/gotowebsites/gallary/gallary.html","_self")
 })
 
 ffaq.addEventListener("click", () => {
@@ -36,7 +36,7 @@ ffaq.addEventListener("click", () => {
 });
 
 fresource.addEventListener('click',()=>{
-  window.open("file:///E:/temporary/notes/orders.html","_self")
+  window.open("https://hulk-codder.github.io/HutchFlow/notes/orders.html","_self")
 })
 
 fcontacts.addEventListener('click', () => {
