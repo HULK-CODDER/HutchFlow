@@ -14,10 +14,15 @@ if (doc_button_on) {
 }
 
 })
-doc_button.addEventListener("blur",()=>{
-    doc_section.classList.add('doc_deactive')
-    doc_button_on=true
-})
+ document.addEventListener("click", (e) => {
+    if (!doc_section.contains(e.target) && !doc_button.contains(e.target)) {
+        doc_section.classList.add('doc_deactive')
+        doc_button_on = true
+
+    }
+
+});
+
 
 const sheetLinks = [
   "https://docs.google.com/spreadsheets/d/1K6gkleEgJ8LLbI_63QvZ_unFiwMPxU4-c7NVu1Ou-U0/edit?usp=sharing",
