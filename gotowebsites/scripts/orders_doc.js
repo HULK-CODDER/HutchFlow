@@ -15,7 +15,10 @@ if (doc_button_on) {
 
 })
 
-
+doc_button.addEventListener("blur",()=>{
+    doc_section.classList.add('doc_deactive')
+    doc_button_on=true
+})
 const sheetLinks = [
   "https://docs.google.com/spreadsheets/d/1JP93BxzMYsn_2LZQkUAws2cQ6snAQQfDFgih9wGWsb4/edit?usp=sharing",
   "https://docs.google.com/spreadsheets/d/1tJsPpMn4ZWI-03zNJzMVTtvSdqvF2ljtYHgDg7cXpTw/edit?usp=sharing",
